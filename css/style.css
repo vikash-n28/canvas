@@ -1,0 +1,10 @@
+body{
+  background-color: ivory;
+     padding:0px;
+}
+
+#canvas{
+  width: 1330px;
+  height:650px;
+  border:1px solid yellow;
+}
