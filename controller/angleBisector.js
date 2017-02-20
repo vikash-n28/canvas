@@ -1,4 +1,4 @@
-angular.module("myApp").controller('canvasCtrl', function($scope) {
+angular.module("myApp").controller('', function($scope) {
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var points = [];

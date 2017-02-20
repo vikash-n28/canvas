@@ -1,4 +1,4 @@
-angular.module('myApp').controller('bezierCtrl', function($scope) {
+angular.module('myApp').controller('', function($scope) {
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
     var canvasOffset = $("#canvas").offset();

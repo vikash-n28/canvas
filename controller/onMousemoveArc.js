@@ -3,7 +3,7 @@ angular.module("myApp").controller('', function($scope) {
     var context = canvas.getContext('2d');
     var points = [];
     var isDown = false;
-    var mousePos;
+    var lastPos;
     var r1X;
     var r1Y;
     var r1;
@@ -17,23 +17,23 @@ angular.module("myApp").controller('', function($scope) {
     canvas.addEventListener('mousedown', function(evt) {
         isDown = true;
         evt.preventDefault()
-        mousePos = getMousePos(canvas, evt);
-        points.push(mousePos);
+        lastPos = getMousePos(canvas, evt);
+        points.push(lastPos);
         if (points.length == 2) {
             canvas.addEventListener('mousemove', function(evt) {
                 isDown = false;
                 evt.preventDefault()
-                mousePos = getMousePos(canvas, evt);
+                lastPos = getMousePos(canvas, evt);
                 if (points.length != 3 && points.length <= 3) {
                     randomMovement(points[0], points[1], {
-                        x: mousePos.x,
-                        y: mousePos.y
+                        x: lastPos.x,
+                        y: lastPos.y
                     });
                 }
             }, false);
         }
         if (points.length <= 3) {
-            drawPoints(mousePos.x, mousePos.y);
+            drawPoints(lastPos.x, lastPos.y);
             getDistance(points[0], points[1], points[2]);
         }
     }, false);
